@@ -8,8 +8,11 @@
 
 #import "ViewController.h"
 #import "BSPermenantThreadViewController.h"
+#import "BSFluecyMonitorViewController.h"
 @interface ViewController ()
 @property (nonatomic, strong) UIButton * pushLongThreadButton;
+@property (nonatomic, strong) UIButton * pushFluecyMonitorButton;
+
 @end
 
 @implementation ViewController
@@ -19,6 +22,7 @@
     self.title = @"Runloop 应用场景";
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.pushLongThreadButton];
+    [self.view addSubview:self.pushFluecyMonitorButton];
 
 }
 
@@ -33,6 +37,19 @@
 }
 - (void)pushLongThreadController {
     BSPermenantThreadViewController * controller = [[BSPermenantThreadViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:true];
+}
+- (UIButton *)pushFluecyMonitorButton {
+    if (!_pushFluecyMonitorButton) {
+        _pushFluecyMonitorButton = [[UIButton alloc] initWithFrame:CGRectMake((self.view.frame.size.width - 200)/2, 170, 200, 50)];
+        _pushFluecyMonitorButton.backgroundColor = [UIColor orangeColor];
+        [_pushFluecyMonitorButton setTitle:@"卡顿检测" forState:UIControlStateNormal];
+        [_pushFluecyMonitorButton addTarget:self action:@selector(pushFluecyMonitorController) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _pushFluecyMonitorButton;
+}
+- (void)pushFluecyMonitorController {
+    BSFluecyMonitorViewController * controller = [[BSFluecyMonitorViewController alloc] init];
     [self.navigationController pushViewController:controller animated:true];
 }
 

@@ -18,6 +18,9 @@
 		49A42E21250B6A07009EF864 /* RunloopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A42E20250B6A07009EF864 /* RunloopUITests.m */; };
 		49A42E32250B6ADD009EF864 /* BSPermenantThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A42E31250B6ADD009EF864 /* BSPermenantThreadViewController.m */; };
 		49A42E35250B718F009EF864 /* BSPermenantThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A42E34250B718F009EF864 /* BSPermenantThread.m */; };
+		49A42E3C250B7C8A009EF864 /* LXDBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A42E38250B7C8A009EF864 /* LXDBacktraceLogger.m */; };
+		49A42E3D250B7C8A009EF864 /* LXDAppFluecyMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A42E3B250B7C8A009EF864 /* LXDAppFluecyMonitor.m */; };
+		49A42E40250B7CE7009EF864 /* BSFluecyMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A42E3F250B7CE7009EF864 /* BSFluecyMonitorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,12 @@
 		49A42E31250B6ADD009EF864 /* BSPermenantThreadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSPermenantThreadViewController.m; sourceTree = "<group>"; };
 		49A42E33250B718F009EF864 /* BSPermenantThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSPermenantThread.h; sourceTree = "<group>"; };
 		49A42E34250B718F009EF864 /* BSPermenantThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSPermenantThread.m; sourceTree = "<group>"; };
+		49A42E38250B7C8A009EF864 /* LXDBacktraceLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDBacktraceLogger.m; sourceTree = "<group>"; };
+		49A42E39250B7C8A009EF864 /* LXDBacktraceLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDBacktraceLogger.h; sourceTree = "<group>"; };
+		49A42E3A250B7C8A009EF864 /* LXDAppFluecyMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDAppFluecyMonitor.h; sourceTree = "<group>"; };
+		49A42E3B250B7C8A009EF864 /* LXDAppFluecyMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDAppFluecyMonitor.m; sourceTree = "<group>"; };
+		49A42E3E250B7CE7009EF864 /* BSFluecyMonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSFluecyMonitorViewController.h; sourceTree = "<group>"; };
+		49A42E3F250B7CE7009EF864 /* BSFluecyMonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSFluecyMonitorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +168,30 @@
 		49A42E2F250B6A77009EF864 /* 卡顿检测 */ = {
 			isa = PBXGroup;
 			children = (
+				49A42E3E250B7CE7009EF864 /* BSFluecyMonitorViewController.h */,
+				49A42E3F250B7CE7009EF864 /* BSFluecyMonitorViewController.m */,
+				49A42E36250B7C8A009EF864 /* LXDAppFluecyMonitor */,
 			);
 			path = "卡顿检测";
+			sourceTree = "<group>";
+		};
+		49A42E36250B7C8A009EF864 /* LXDAppFluecyMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				49A42E37250B7C8A009EF864 /* Backtrace */,
+				49A42E3A250B7C8A009EF864 /* LXDAppFluecyMonitor.h */,
+				49A42E3B250B7C8A009EF864 /* LXDAppFluecyMonitor.m */,
+			);
+			path = LXDAppFluecyMonitor;
+			sourceTree = "<group>";
+		};
+		49A42E37250B7C8A009EF864 /* Backtrace */ = {
+			isa = PBXGroup;
+			children = (
+				49A42E38250B7C8A009EF864 /* LXDBacktraceLogger.m */,
+				49A42E39250B7C8A009EF864 /* LXDBacktraceLogger.h */,
+			);
+			path = Backtrace;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,10 +325,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				49A42E01250B6A04009EF864 /* ViewController.m in Sources */,
+				49A42E3D250B7C8A009EF864 /* LXDAppFluecyMonitor.m in Sources */,
 				49A42E32250B6ADD009EF864 /* BSPermenantThreadViewController.m in Sources */,
 				49A42DFB250B6A04009EF864 /* AppDelegate.m in Sources */,
 				49A42E35250B718F009EF864 /* BSPermenantThread.m in Sources */,
+				49A42E3C250B7C8A009EF864 /* LXDBacktraceLogger.m in Sources */,
 				49A42E0C250B6A06009EF864 /* main.m in Sources */,
+				49A42E40250B7CE7009EF864 /* BSFluecyMonitorViewController.m in Sources */,
 				49A42DFE250B6A04009EF864 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
