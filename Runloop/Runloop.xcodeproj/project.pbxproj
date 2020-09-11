@@ -16,6 +16,8 @@
 		49A42E0C250B6A06009EF864 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A42E0B250B6A06009EF864 /* main.m */; };
 		49A42E16250B6A07009EF864 /* RunloopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A42E15250B6A07009EF864 /* RunloopTests.m */; };
 		49A42E21250B6A07009EF864 /* RunloopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A42E20250B6A07009EF864 /* RunloopUITests.m */; };
+		49A42E32250B6ADD009EF864 /* BSPermenantThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A42E31250B6ADD009EF864 /* BSPermenantThreadViewController.m */; };
+		49A42E35250B718F009EF864 /* BSPermenantThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A42E34250B718F009EF864 /* BSPermenantThread.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,10 @@
 		49A42E1C250B6A07009EF864 /* RunloopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunloopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A42E20250B6A07009EF864 /* RunloopUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunloopUITests.m; sourceTree = "<group>"; };
 		49A42E22250B6A07009EF864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49A42E30250B6ADD009EF864 /* BSPermenantThreadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSPermenantThreadViewController.h; sourceTree = "<group>"; };
+		49A42E31250B6ADD009EF864 /* BSPermenantThreadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSPermenantThreadViewController.m; sourceTree = "<group>"; };
+		49A42E33250B718F009EF864 /* BSPermenantThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSPermenantThread.h; sourceTree = "<group>"; };
+		49A42E34250B718F009EF864 /* BSPermenantThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSPermenantThread.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,8 @@
 		49A42DF8250B6A04009EF864 /* Runloop */ = {
 			isa = PBXGroup;
 			children = (
+				49A42E2F250B6A77009EF864 /* 卡顿检测 */,
+				49A42E2E250B6A5C009EF864 /* 线程保活 */,
 				49A42DF9250B6A04009EF864 /* AppDelegate.h */,
 				49A42DFA250B6A04009EF864 /* AppDelegate.m */,
 				49A42DFC250B6A04009EF864 /* SceneDelegate.h */,
@@ -135,6 +143,24 @@
 				49A42E22250B6A07009EF864 /* Info.plist */,
 			);
 			path = RunloopUITests;
+			sourceTree = "<group>";
+		};
+		49A42E2E250B6A5C009EF864 /* 线程保活 */ = {
+			isa = PBXGroup;
+			children = (
+				49A42E30250B6ADD009EF864 /* BSPermenantThreadViewController.h */,
+				49A42E31250B6ADD009EF864 /* BSPermenantThreadViewController.m */,
+				49A42E33250B718F009EF864 /* BSPermenantThread.h */,
+				49A42E34250B718F009EF864 /* BSPermenantThread.m */,
+			);
+			path = "线程保活";
+			sourceTree = "<group>";
+		};
+		49A42E2F250B6A77009EF864 /* 卡顿检测 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "卡顿检测";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +294,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				49A42E01250B6A04009EF864 /* ViewController.m in Sources */,
+				49A42E32250B6ADD009EF864 /* BSPermenantThreadViewController.m in Sources */,
 				49A42DFB250B6A04009EF864 /* AppDelegate.m in Sources */,
+				49A42E35250B718F009EF864 /* BSPermenantThread.m in Sources */,
 				49A42E0C250B6A06009EF864 /* main.m in Sources */,
 				49A42DFE250B6A04009EF864 /* SceneDelegate.m in Sources */,
 			);
