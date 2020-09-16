@@ -21,6 +21,7 @@
 		49306F0A2511CFF0004FC251 /* NSThreadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49306F092511CFF0004FC251 /* NSThreadController.m */; };
 		49306F0D2511CFFE004FC251 /* NSOperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49306F0C2511CFFE004FC251 /* NSOperationController.m */; };
 		49306F102511DBCF004FC251 /* WHOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49306F0E2511DBCF004FC251 /* WHOperation.m */; };
+		49306F152511E19E004FC251 /* AppCallCollecter.m in Sources */ = {isa = PBXBuildFile; fileRef = 49306F122511E19D004FC251 /* AppCallCollecter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		49306F0C2511CFFE004FC251 /* NSOperationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSOperationController.m; sourceTree = "<group>"; };
 		49306F0E2511DBCF004FC251 /* WHOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHOperation.m; sourceTree = "<group>"; };
 		49306F0F2511DBCF004FC251 /* WHOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHOperation.h; sourceTree = "<group>"; };
+		49306F122511E19D004FC251 /* AppCallCollecter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCallCollecter.m; sourceTree = "<group>"; };
+		49306F132511E19D004FC251 /* AppCallCollecter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCallCollecter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,7 @@
 		49306EC925106519004FC251 /* MultiThread */ = {
 			isa = PBXGroup;
 			children = (
+				49306F112511E19D004FC251 /* AppCallCollecter */,
 				49306F0125108845004FC251 /* NSOperation */,
 				49306F0025108834004FC251 /* NSThread */,
 				49306EFF2510882E004FC251 /* GCD */,
@@ -185,6 +189,15 @@
 			);
 			path = NSOperation;
 			sourceTree = "<group>";
+		};
+		49306F112511E19D004FC251 /* AppCallCollecter */ = {
+			isa = PBXGroup;
+			children = (
+				49306F122511E19D004FC251 /* AppCallCollecter.m */,
+				49306F132511E19D004FC251 /* AppCallCollecter.h */,
+			);
+			path = AppCallCollecter;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -317,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49306F0D2511CFFE004FC251 /* NSOperationController.m in Sources */,
+				49306F152511E19E004FC251 /* AppCallCollecter.m in Sources */,
 				49306ED225106519004FC251 /* ViewController.m in Sources */,
 				49306ECC25106519004FC251 /* AppDelegate.m in Sources */,
 				49306EDD2510651D004FC251 /* main.m in Sources */,
@@ -496,10 +510,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4NM6SHC4X2;
 				INFOPLIST_FILE = MultiThread/Info.plist;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ORDER_FILE = "$(SRCROOT)/RuntimeLearing.order";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluesmart.MultiThread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -513,10 +529,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4NM6SHC4X2;
 				INFOPLIST_FILE = MultiThread/Info.plist;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ORDER_FILE = "$(SRCROOT)/RuntimeLearing.order";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluesmart.MultiThread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
