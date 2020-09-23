@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"GCD";
-    _dataList = @[@"串行同步",@"串行异步",@"并发同步",@"并发异步",@"主队列同步",@"主队列异步",@"GCD线程之间的通信",@"GCD栅栏",@"GCD延时执行",@"GCD快速迭代",@"GCD队列组"];
+    _dataList = @[@"串行同步",@"串行异步",@"并发同步",@"并发异步",@"主队列同步",@"主队列异步",@"GCD线程之间的通信",@"GCD栅栏",@"GCD延时执行",@"GCD快速迭代",@"GCD队列组",@"信号量",@"依赖关系"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"tableCell"];
     [self.tableView reloadData];
 }
@@ -78,7 +78,12 @@
     else if ([string isEqualToString:@"GCD队列组"]) {
         [self groupGCD];
     }
-    
+    else if ([string isEqualToString:@"信号量"]) {
+        [self testSemaphore];
+    }
+    else if ([string isEqualToString:@"依赖关系"]) {
+        [self testDependencyGCD];
+    }
 }
 
 //MARK:- 串行同步
@@ -300,5 +305,66 @@
 //        NSLog(@"程序运行过程中我只执行了一次！");
 //    });
 }
+- (void)testSemaphore {
+    
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    dispatch_queue_t queue = dispatch_queue_create("semaphore", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_async(group, queue, ^{
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.baidu.com"]];
+        NSURLSessionDownloadTask *task = [[NSURLSession sharedSession] downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            // 请求完成，可以通知界面刷新界面等操作
+            NSLog(@"第一步网络请求完成1");
+            // 使信号的信号量+1，这里的信号量本来为0，+1信号量为1(绿灯)
+            dispatch_semaphore_signal(semaphore);
+        }];
+        [task resume];
+        // 以下还要进行一些其他的耗时操作
+        NSLog(@"1耗时操作继续进行");
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    });
+    dispatch_group_async(group, queue, ^{
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.github.com"]];
+        NSURLSessionDownloadTask *task = [[NSURLSession sharedSession] downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            // 请求完成，可以通知界面刷新界面等操作
+            NSLog(@"第一步网络请求完成2");
+            // 使信号的信号量+1，这里的信号量本来为0，+1信号量为1(绿灯)
+            dispatch_semaphore_signal(semaphore);
+        }];
+        [task resume];
+        // 以下还要进行一些其他的耗时操作
+        NSLog(@"2耗时操作继续进行");
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    });
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"刷新界面等在主线程的操作");
+    });
+}
+- (void)testDependencyGCD {
+    // 创建分组
+    dispatch_group_t group = dispatch_group_create();
+    // 创建队列
+    dispatch_queue_t queue = dispatch_queue_create("queus", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_group_async(group, queue, ^{
+        sleep(2);
+        NSLog(@"1111111 %@",[NSThread currentThread]);
 
+    });
+
+    dispatch_group_async(group, queue, ^{
+        sleep(2);
+        NSLog(@"222222 %@",[NSThread currentThread]);
+    });
+
+    dispatch_group_async(group, queue, ^{
+        sleep(2);
+        NSLog(@"333333 %@",[NSThread currentThread]);
+    });
+    
+    dispatch_group_notify(group, queue, ^{
+        NSLog(@"完成 --- %@",[NSThread currentThread]);
+    });
+}
 @end
